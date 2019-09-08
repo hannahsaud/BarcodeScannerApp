@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, BarcodeScannerDelegate {
 
     @IBOutlet weak var barcodeField: UITextField!
     var barcodeScanner: BarcodeScannerVC!
@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         barcodeScanner = BarcodeScannerVC()
+        barcodeScanner.delegate = self
     }
     
     @IBAction func scanBarcode(_ sender: Any) {
@@ -27,8 +28,10 @@ class ViewController: UIViewController {
     func launchBarcodeScannerVC() {
         
         present(barcodeScanner, animated: true, completion: nil)
-        while navigationController?.topViewController != self {}
-        barcodeField.text = barcodeScanner.barcodeValue
+    }
+    
+    func getBarcodeValue(barcodeVal: String) {
+        barcodeField.text = barcodeVal
     }
 }
 

@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 import AVFoundation
 
+protocol BarcodeScannerDelegate : NSObjectProtocol{
+    
+    func getBarcodeValue(barcodeVal: String)
+}
+
 class  BarcodeScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
     var captureSession: AVCaptureSession!
     var previewLayer: AVCaptureVideoPreviewLayer!
-    var barcodeValue: String?
+    weak var delegate : BarcodeScannerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,7 +101,10 @@ class  BarcodeScannerVC: UIViewController, AVCaptureMetadataOutputObjectsDelegat
     }
     
     func found(code: String) {
-        barcodeValue = code
+        
+        if let delegate = delegate {
+            delegate.getBarcodeValue(barcodeVal: code)
+        }
         print(code)
     }
     
