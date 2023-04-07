@@ -100,12 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				AA915C332324E9BB00D8F8C3 /* AppDelegate.swift */,
+				AA915C612325038E00D8F8C3 /* BarcodeScannerVC.swift */,
 				AA915C352324E9BB00D8F8C3 /* ViewController.swift */,
 				AA915C372324E9BB00D8F8C3 /* Main.storyboard */,
 				AA915C3A2324E9BD00D8F8C3 /* Assets.xcassets */,
 				AA915C3C2324E9BD00D8F8C3 /* LaunchScreen.storyboard */,
 				AA915C3F2324E9BD00D8F8C3 /* Info.plist */,
-				AA915C612325038E00D8F8C3 /* BarcodeScannerVC.swift */,
 			);
 			path = BarcodeScannerApp;
 			sourceTree = "<group>";
